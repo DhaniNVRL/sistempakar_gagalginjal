@@ -1,0 +1,40 @@
+OneToMany
+
+suratkeluar >> suratkeluardetail
+
+
+
+=>> di Tabel suratkeluar
+
+>> dibawah getData/echo ditambahin
+   <a href='?mnu=suratkeluardetail&id=$kode_suratkeluar'><img src='ypathicon/xls.png' alt='detail'></a>
+
+
+
+=>> di Tabel suratkeluardetail
+
+>> dibawah </script> ditambahkan tabel dari suratkeluar
+   dari
+   <?php
+   if($_GET["pro"]=="ubah"){
+
+   sampai
+   </table>
+
+   bagian yg dihapus, yg copas dari suratkeluar
+   1. if($_GET["pro"]=="ubah"){
+   2. $pro="ubah";}
+   3. kode diganti dg id. contoh : $kode_suratkeluar=$_GET["id"];
+   4. script button nya dihapus
+
+>> di getJum ditambahkan = where kode_suratkeluar='$kode_suratkeluar'
+   contoh : $sql="select * from `$tbsuratkeluardetail` where kode_suratkeluar='$kode_suratkeluar' order by `id` desc";
+
+>> diganti linknya, di Replace
+   ?mnu=suratkeluar di Replace jadi ?mnu=suratkeluardetail&id=$kode_suratkeluar
+
+>> dibawah VALUES yg id dihapus. contoh : '',
+
+>> di script hapus data. ditambahkan $kode_suratkeluar=$_GET["id"]; dibawah $id=$_GET["kode"];
+
+Finish
